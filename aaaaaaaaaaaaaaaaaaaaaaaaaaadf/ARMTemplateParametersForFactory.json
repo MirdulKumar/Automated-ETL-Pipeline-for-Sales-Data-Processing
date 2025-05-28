@@ -1,0 +1,66 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "aaaaaaaaaaaaaaaaaaaaaaaaaaadf"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage2_accountKey": {
+			"value": ""
+		},
+		"AzureDatabricks1_accessToken": {
+			"value": ""
+		},
+		"AzureDatabricksDeltaLake_audit_log_accessToken": {
+			"value": ""
+		},
+		"MySql1_password": {
+			"value": ""
+		},
+		"bronze_layer_linkedSer_accountKey": {
+			"value": ""
+		},
+		"mySqlToadlsZen2_accountKey": {
+			"value": ""
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://amktadlszen2.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://amktadlszen2.dfs.core.windows.net/"
+		},
+		"AzureDatabricks1_properties_typeProperties_existingClusterId": {
+			"value": "0505-055544-9yef7uev"
+		},
+		"AzureKeyVault1_properties_typeProperties_baseUrl": {
+			"value": "https://mkt-serectVault.vault.azure.net/"
+		},
+		"MySql1_properties_typeProperties_server": {
+			"value": "localhost"
+		},
+		"MySql1_properties_typeProperties_database": {
+			"value": "@{linkedService().database}"
+		},
+		"MySql1_properties_typeProperties_username": {
+			"value": "root"
+		},
+		"SSMS_LinkedService_properties_typeProperties_server": {
+			"value": "MIRDUL-PERSONAL\\SQLEXPRESS"
+		},
+		"SSMS_LinkedService_properties_typeProperties_database": {
+			"value": "AdventureWorksLT2022"
+		},
+		"SSMS_LinkedService_properties_typeProperties_userName": {
+			"value": "MK"
+		},
+		"bronze_layer_linkedSer_properties_typeProperties_url": {
+			"value": "https://amktadlszen2.dfs.core.windows.net/"
+		},
+		"mySqlToadlsZen2_properties_typeProperties_url": {
+			"value": "https://amktadlszen2.dfs.core.windows.net/"
+		}
+	}
+}
