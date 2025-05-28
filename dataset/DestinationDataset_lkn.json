@@ -1,0 +1,24 @@
+{
+	"name": "DestinationDataset_lkn",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "mySqlToadlsZen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "employee_data",
+				"fileSystem": "bronze-layer"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

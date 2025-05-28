@@ -1,0 +1,6 @@
+{
+	"name": "toMysqlWorkbench",
+	"properties": {
+		"type": "SelfHosted"
+	}
+}

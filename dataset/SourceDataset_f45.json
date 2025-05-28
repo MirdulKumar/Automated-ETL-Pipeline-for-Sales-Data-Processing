@@ -1,0 +1,33 @@
+{
+	"name": "SourceDataset_f45",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "MySql1",
+			"type": "LinkedServiceReference",
+			"parameters": {
+				"database": {
+					"value": "@dataset().cw_database",
+					"type": "Expression"
+				}
+			}
+		},
+		"parameters": {
+			"cw_tableName": {
+				"type": "String"
+			},
+			"cw_database": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "MySqlTable",
+		"schema": [],
+		"typeProperties": {
+			"tableName": {
+				"value": "@dataset().cw_tableName",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

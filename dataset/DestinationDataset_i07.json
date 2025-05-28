@@ -1,0 +1,24 @@
+{
+	"name": "DestinationDataset_i07",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "mySqlToadlsZen2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "silver-layer"
+			},
+			"compressionCodec": "none",
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"quoteChar": "\"",
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,36 @@
+{
+	"name": "sink_datasetfor_SSMS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "bronze_layer_linkedSer",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"Schema_name": {
+				"type": "string"
+			},
+			"Table_name": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@{concat(dataset().Table_name,'.csv')}",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@{concat(dataset().Schema_name,'/',dataset().Table_name)}",
+					"type": "Expression"
+				},
+				"fileSystem": "bronze-layer"
+			},
+			"compressionCodec": "gzip"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

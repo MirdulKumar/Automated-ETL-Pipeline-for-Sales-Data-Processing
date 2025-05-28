@@ -1,0 +1,170 @@
+{
+	"name": "copyMysqlDataToAdlsZen2",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEach_f45",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.cw_items",
+						"type": "Expression"
+					},
+					"activities": [
+						{
+							"name": "Copy_f45",
+							"type": "Copy",
+							"dependsOn": [],
+							"policy": {
+								"timeout": "0.12:00:00",
+								"retry": 0,
+								"retryIntervalInSeconds": 30,
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [
+								{
+									"name": "Source",
+									"value": "@{item().source.tableName}"
+								},
+								{
+									"name": "Destination",
+									"value": "bronze-layer//@{item().destination.fileName}"
+								}
+							],
+							"typeProperties": {
+								"source": {
+									"type": "MySqlSource"
+								},
+								"sink": {
+									"type": "DelimitedTextSink",
+									"storeSettings": {
+										"type": "AzureBlobFSWriteSettings"
+									},
+									"formatSettings": {
+										"type": "DelimitedTextWriteSettings",
+										"quoteAllText": true,
+										"fileExtension": ".txt"
+									}
+								},
+								"enableStaging": false,
+								"validateDataConsistency": false,
+								"translator": {
+									"type": "TabularTranslator",
+									"typeConversion": true,
+									"typeConversionSettings": {
+										"allowDataTruncation": true,
+										"treatBooleanAsNumber": false
+									}
+								}
+							},
+							"inputs": [
+								{
+									"referenceName": "SourceDataset_f45",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_tableName": "@item().source.tableName",
+										"cw_database": "employees"
+									}
+								}
+							],
+							"outputs": [
+								{
+									"referenceName": "DestinationDataset_f45",
+									"type": "DatasetReference",
+									"parameters": {
+										"cw_fileName": "@item().destination.fileName"
+									}
+								}
+							]
+						}
+					]
+				}
+			}
+		],
+		"parameters": {
+			"cw_items": {
+				"type": "Array",
+				"defaultValue": [
+					{
+						"source": {
+							"tableName": "`current_dept_emp`"
+						},
+						"destination": {
+							"fileName": "`current_dept_emp`.csv"
+						}
+					},
+					{
+						"source": {
+							"tableName": "`departments`"
+						},
+						"destination": {
+							"fileName": "`departments`.csv"
+						}
+					},
+					{
+						"source": {
+							"tableName": "`dept_emp`"
+						},
+						"destination": {
+							"fileName": "`dept_emp`.csv"
+						}
+					},
+					{
+						"source": {
+							"tableName": "`dept_emp_latest_date`"
+						},
+						"destination": {
+							"fileName": "`dept_emp_latest_date`.csv"
+						}
+					},
+					{
+						"source": {
+							"tableName": "`dept_manager`"
+						},
+						"destination": {
+							"fileName": "`dept_manager`.csv"
+						}
+					},
+					{
+						"source": {
+							"tableName": "`emp_salary`"
+						},
+						"destination": {
+							"fileName": "`emp_salary`.csv"
+						}
+					},
+					{
+						"source": {
+							"tableName": "`employees`"
+						},
+						"destination": {
+							"fileName": "`employees`.csv"
+						}
+					},
+					{
+						"source": {
+							"tableName": "`salaries`"
+						},
+						"destination": {
+							"fileName": "`salaries`.csv"
+						}
+					},
+					{
+						"source": {
+							"tableName": "`titles`"
+						},
+						"destination": {
+							"fileName": "`titles`.csv"
+						}
+					}
+				]
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2025-05-06T05:59:10Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

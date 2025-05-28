@@ -1,0 +1,28 @@
+{
+	"name": "SSMS_LinkedService",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "MIRDUL-PERSONAL\\SQLEXPRESS",
+			"database": "AdventureWorksLT2022",
+			"encrypt": "optional",
+			"trustServerCertificate": true,
+			"authenticationType": "SQL",
+			"userName": "MK",
+			"password": {
+				"type": "AzureKeyVaultSecret",
+				"store": {
+					"referenceName": "AzureKeyVault1",
+					"type": "LinkedServiceReference"
+				},
+				"secretName": "SSMS-Password"
+			}
+		},
+		"connectVia": {
+			"referenceName": "toMysqlWorkbench",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}
