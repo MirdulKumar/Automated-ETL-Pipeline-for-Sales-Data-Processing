@@ -486,6 +486,22 @@
 						}
 					]
 				}
+			},
+			{
+				"name": "wait_for_5sec",
+				"type": "Wait",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"waitTimeInSeconds": 5
+				}
 			}
 		],
 		"annotations": [],
