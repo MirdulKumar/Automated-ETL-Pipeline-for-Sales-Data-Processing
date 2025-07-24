@@ -1,66 +1,35 @@
-# gsyn-data-engineering-challenge-Mirdul-Kumar
-This is for Gsynergy data engineering challenge
-<br>
-# GSynergy Data Engineering Challenge
+<h1>Azure Data Factory - Deployment Repository</h1>
 
-## Project Overview
-This project is a solution for the GSynergy Data Engineering Challenge. It involves designing and implementing an ELT pipeline to process raw data, perform schema inference, apply data quality checks, normalize hierarchical data, and aggregate fact data in a data warehouse.
+<p>This repository contains the ARM templates and configurations for an Azure Data Factory project. It includes definitions for datasets, pipelines, linked services, and integration runtimes.</p>
 
-## Technologies Used
-- **Cloud Provider:** Azure 
-- **Storage:** Azure data lake storage Zen2 (ADLS zen2)
-- **Data Warehouse:** Databricks 
-- **ETL/ELT Tools:** Azure Data Factory 
-- **Transformation Framework:** dbt (Data Build Tool)
-- **Scripting & Query Language:** Python, SQL
-- **Version Control:** Git & GitHub
-- **Documentation Tools:** dbdiagram.io / draw.io for ER diagrams
+<h2>📁 Repository Structure</h2>
+<ul>
+  <li><strong>dataset/</strong> - Contains dataset definitions used in the pipelines.</li>
+  <li><strong>factory/</strong> - Factory-level configurations and metadata.</li>
+  <li><strong>integrationRuntime/</strong> - Integration Runtime setup for managing compute and connectivity.</li>
+  <li><strong>linkedService/</strong> - Configuration for linked services such as Azure Blob, SQL DB, etc.</li>
+  <li><strong>pipeline/</strong> - Contains ADF pipeline definitions for ETL processes.</li>
+  <li><strong>publish_config.json</strong> - Defines publishing settings for ADF deployment.</li>
+  <li><strong>README.md</strong> - Repository documentation.</li>
+</ul>
 
-## Setup Instructions
-1. Clone this repository:
-   ```sh
-   git clone https://github.com/MirdulKumar/gsyn-data-engineering-challenge-Mirdul-Kumar.git
-   cd gsyn-data-engineering-challenge-Mirdul-Kumar
-   ```
-2. Set up cloud storage (Azure) and upload raw data.
-3. Configure your data warehouse (Databricks).
-4. Install required dependencies:
-   ```sh
-   pip install -r requirements.txt  # 
-   ```
-5. Update configuration files with your cloud credentials and storage locations.
+<h2>🚀 Deployment Instructions</h2>
+<ol>
+  <li>Clone this repository to your local environment.</li>
+  <li>Use Azure Data Factory's ARM template deployment option.</li>
+  <li>Modify <code>publish_config.json</code> as needed for your environment.</li>
+  <li>Deploy using Azure DevOps or Azure PowerShell scripts.</li>
+</ol>
 
-## How to Run the Pipeline
-1. Execute the raw data ingestion script:
-   ```sh
-   python scripts/load_raw_data.py
-   ```
-2. Run data quality checks:
-   ```sh
-   python scripts/data_quality_checks.py
-   ```
-3. Normalize hierarchical data:
-   ```sh
-   python scripts/normalize_hierarchy.py
-   ```
-4. Aggregate fact data into `mview_weekly_sales`:
-   ```sh
-   python scripts/aggregate_sales.py
-   ```
+<h2>✅ Best Practices</h2>
+<ul>
+  <li>Use separate branches for development and production deployments.</li>
+  <li>Keep linked services parameterized where possible.</li>
+  <li>Track changes to all objects for CI/CD traceability.</li>
+</ul>
 
-## How to Validate the Output
-1. Connect to the data warehouse and verify table structures:
-   ```sql
-   SELECT * FROM staging.hier_table;
-   SELECT * FROM refined.mview_weekly_sales;
-   ```
-2. Check data quality reports for errors and inconsistencies.
-3. Run test queries to confirm aggregations.
-4. Review logs and debug any failures.
+<h2>📌 Notes</h2>
+<p>This repository reflects automated or manual changes to Azure Data Factory via ARM template exports. Make sure to sync changes from ADF Studio to version control regularly.</p>
 
-For any issues, refer to the logs generated in the `logs/` directory.
-
----
-
-**Author:** Mirdul Kumar
-**Contact:** kmirdu91@gmail.com
+<hr />
+<p><em>Maintained by the Data Engineering Team</em></p>
